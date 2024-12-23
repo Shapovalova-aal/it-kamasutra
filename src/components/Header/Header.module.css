@@ -1,0 +1,40 @@
+.header {
+  background-color: rgb(34, 34, 34);
+  grid-area: "header";
+  padding: 15px;
+  display: grid;
+  grid-template: 1fr/ 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+  /* ряд 1 / колонки (ограничивающий контейнер ) 
+  колонки - {отступ слева-1фр/ для лого minmax / ячейка для пунктов меню minmax/ отступ справа - 1fr} итого получается ограничение контейнера 1400px, чтобы все работало нужно чтобы они начинались со второй ячейки, тк 1 это отступ, для этого используется grid-column  */
+  align-items: center;
+}
+.header__logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(225, 227, 230);
+  grid-column: 2 / 3;
+}
+.header__menu {
+  grid-column: 3 / 4;
+}
+.header__list {
+  display: grid;
+  grid-auto-flow: column; /*пункты меню выстроятся в ряд  */
+  justify-items: end; /* чтобы все пункты сдвинулись вправо*/
+}
+.header__list li {
+  padding: 15px 30%;
+  border-radius: 14px;
+}
+/* .header__list li:last-child {
+  padding: 15px 15px 15px 0px;
+} */
+.header__list li:hover {
+  background-color: rgba(41, 41, 41, 0.8);
+  /* background-color: cadetblue; */
+}
+.header__link {
+  color: rgb(225, 227, 230);
+  font-size: 16px;
+}

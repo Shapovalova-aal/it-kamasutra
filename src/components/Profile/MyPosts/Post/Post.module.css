@@ -1,0 +1,33 @@
+.posts__item {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 15px 0px;
+}
+.item__logo {
+  align-self: flex-start;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(225, 227, 230);
+}
+.item__text {
+  flex: 0 0 85%;
+  font-size: 16px;
+  /* padding: 0px 0px 0px 20px; */
+}
+.like {
+  width: 20px;
+  height: 20px;
+  background: url("https://img.icons8.com/?size=100&id=lFyaayFdhpED&format=png&color=E1E3E6")
+    0 0 / cover no-repeat;
+}
+.like:hover {
+  filter: drop-shadow(0px 0px 3px rgba(225, 227, 230, 0.8));
+}
+.like.active {
+  width: 20px;
+  height: 20px;
+  background: url("https://img.icons8.com/?size=100&id=7697&format=png&color=E1E3E6")
+    0 0 / cover no-repeat;
+}

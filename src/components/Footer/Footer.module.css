@@ -1,0 +1,18 @@
+.footer {
+  grid-area: "footer";
+  /* background-color: #573117; */
+  border-top: 2px solid rgb(34, 34, 34);
+  display: grid;
+  grid-template: 1fr/ 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr; /* тоже самое что и в header  */
+  padding: 15px;
+  align-items: center;
+}
+.footer__copy {
+  margin: 0px 15px;
+  grid-column: 2 / 3;
+}
+.footer__text {
+  margin: 0px 15px;
+  grid-column: 3 / 4;
+  text-align: right;
+}
