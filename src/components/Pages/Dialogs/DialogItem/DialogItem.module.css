@@ -1,0 +1,35 @@
+.dialog:first-child {
+  border-radius: 10px 10px 0 0;
+}
+.dialog:last-child {
+  border-radius: 0 0 10px 10px;
+}
+.dialog {
+  padding: 10px;
+  border: 2px solid rgb(34, 34, 34);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.dialog__active {
+  font-weight: 700;
+}
+.active {
+  background-color: rgba(41, 41, 41, 0.8);
+}
+.dialog a {
+  font-size: 16px;
+  color: rgb(225, 227, 230);
+}
+.dialog:hover {
+  background-color: rgba(41, 41, 41, 0.8);
+}
+.dialog__image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* background-color: rgb(225, 227, 230); */
+  /* background-image: url("https://i.pinimg.com/736x/c2/9b/b5/c29bb54202c2e8c282dea2be23d15e68.jpg")
+    0 0/30px 30px no-repeat; */
+  margin: 0px 10px 0px 0px;
+}

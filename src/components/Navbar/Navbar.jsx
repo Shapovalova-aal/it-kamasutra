@@ -1,37 +1,62 @@
 import React from "react";
 import classes from "./Navbar.module.css";
+import { NavLink, Link } from "react-router";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const navActive = ({ isActive }) =>
+    isActive ? classes.nav__link + " " + classes.active : classes.nav__link;
+
+  let links = props.links.map((link) => (
+    <li key={link.id}>
+      <NavLink to={link.url} className={navActive}>
+        {link.linkName}
+      </NavLink>
+    </li>
+  ));
+
+  let friends = props.friends.map((friend) => (
+    <div key={friend.id} className={classes.friends__item}>
+      <img src={friend.url} alt="" />
+      <div>{friend.name}</div>
+    </div>
+  ));
+
   return (
     <nav className={classes.nav}>
-      <nav class={classes.nav__menu}>
-        <ul class={classes.nav__list}>
-          <li>
-            <a href="" class={classes.nav__link}>
+      <nav className={classes.nav__menu}>
+        <ul className={classes.nav__list}>
+          {links}
+          {/* <li>
+            <NavLink to={"/"} className={navActive}>
               Profile
-            </a>
+            </NavLink>
           </li>
+
           <li>
-            <a href="" class={classes.nav__link}>
+            <NavLink to={"/messages"} className={navActive}>
               Messages
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="" class={classes.nav__link}>
+            <NavLink to={"/news"} className={navActive}>
               News
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="" class={classes.nav__link}>
+            <NavLink to={"/music"} className={navActive}>
               Music
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="" class={classes.nav__link}>
+            <NavLink to={"/settings"} className={navActive}>
               Settings
-            </a>
-          </li>
+            </NavLink>
+          </li> */}
         </ul>
+        <div className={classes.nav__friends}>
+          Friends
+          <div className={classes.friends__container}>{friends}</div>
+        </div>
       </nav>
     </nav>
   );

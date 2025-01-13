@@ -6,19 +6,19 @@ const Header = () => {
     <header className={classes.header}>
       <div className={classes.header__logo}></div>
       <div className={classes.header__menu}>
-        <ul class={classes.header__list}>
+        <ul className={classes.header__list}>
           <li>
-            <a href="" class={classes.header__link}>
+            <a href="" className={classes.header__link}>
               Пункт меню
             </a>
           </li>
           <li>
-            <a href="" class={classes.header__link}>
+            <a href="" className={classes.header__link}>
               Пункт меню
             </a>
           </li>
           <li>
-            <a href="" class={classes.header__link}>
+            <a href="" className={classes.header__link}>
               Пункт меню
             </a>
           </li>
