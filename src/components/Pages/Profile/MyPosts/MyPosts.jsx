@@ -22,7 +22,11 @@ const MyPosts = (props) => {
   return (
     <div className={classes.content__posts}>
       <div className={classes.content__title}>My posts</div>
-      <NewPost addPost={props.addPost} />
+      <NewPost
+        addPost={props.addPost}
+        newPostText={props.newPostText}
+        upDateNewPostText={props.upDateNewPostText}
+      />
       {postElement}
       {/* <Post message={postData[0].message} likesCount={postData[0].likesCount} />
       <Post message={postData[1].message} likesCount={postData[1].likesCount} />

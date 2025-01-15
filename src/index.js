@@ -4,13 +4,16 @@ import App from "./App";
 import state from "./Redux/state";
 import { addPost } from "./Redux/state";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <App
-    // messagesData={messagesData}
-    // dialogsData={dialogsData}
-    // postData={postData}
-    state={state}
-    addPost={addPost}
-  />
-);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(
+//   <App
+//     // messagesData={messagesData}
+//     // dialogsData={dialogsData}
+//     // postData={postData}
+//     state={state}
+//     addPost={addPost}
+//   />
+// );
+
+import { reRenderEntireTree } from "./render";
+reRenderEntireTree(state);

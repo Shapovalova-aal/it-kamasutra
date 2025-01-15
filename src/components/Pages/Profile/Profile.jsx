@@ -6,7 +6,12 @@ const Profile = (props) => {
   return (
     <>
       <ProfileInfo name="lorem l." city="lorem" age="40" phone="+732423532" />
-      <MyPosts postData={props.postData} addPost={props.addPost} />
+      <MyPosts
+        postData={props.postData}
+        addPost={props.addPost}
+        newPostText={props.newPostText}
+        upDateNewPostText={props.upDateNewPostText}
+      />
     </>
   );
 };

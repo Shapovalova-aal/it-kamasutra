@@ -46,7 +46,12 @@ const Dialogs = (props) => {
   ));
   let newMessageElement = React.createRef();
   let addMessage = () => {
-    console.log(newMessageElement.current.value);
+    props.addMessage();
+    // console.log(newMessageElement.current.value);
+  };
+  let onMessageChange = () => {
+    // console.log(newMessageElement.current.value);
+    props.upDateNewMessageText(newMessageElement.current.value);
   };
 
   return (
@@ -66,7 +71,9 @@ const Dialogs = (props) => {
             ref={newMessageElement}
             type="text"
             placeholder="Your message..."
-          ></textarea>
+            value={props.newMessageText}
+            onChange={onMessageChange}
+          />
           <button onClick={addMessage} type="button">
             <img src="https://img.icons8.com/?size=100&id=100004&format=png&color=e1e3e6" />
           </button>

@@ -9,10 +9,11 @@
   align-items: center;
 }
 .header__logo {
-  width: 40px;
+  background: url("/img/1x/wave3.png") 0 0 / contain no-repeat;
+  /* width: 40px; */
   height: 40px;
-  border-radius: 50%;
-  background-color: rgb(225, 227, 230);
+  /* border-radius: 50%; */
+  /* background-color: rgb(225, 227, 230); */
   grid-column: 2 / 3;
 }
 .header__menu {

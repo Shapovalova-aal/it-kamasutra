@@ -25,10 +25,12 @@
 .message_l {
   text-align: left;
   left: 0;
+  background-color: rgb(39, 39, 39);
 }
 .message_r {
   text-align: right;
   right: -20%;
+  background-color: rgb(41, 41, 41);
 }
 
 .addMessage {

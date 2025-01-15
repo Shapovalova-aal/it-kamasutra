@@ -18,6 +18,9 @@ function App(props) {
         profileData={props.state.profilePage}
         navbarData={props.state.navBar}
         addPost={props.addPost}
+        upDateNewPostText={props.upDateNewPostText}
+        addMessage={props.addMessage}
+        upDateNewMessageText={props.upDateNewMessageText}
       />
       <Footer />
     </div>

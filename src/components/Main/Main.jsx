@@ -26,7 +26,9 @@ const Main = (props) => {
                 <Profile
                   // postData={props.postData}
                   postData={props.profileData.postData}
+                  newPostText={props.profileData.newPostText}
                   addPost={props.addPost}
+                  upDateNewPostText={props.upDateNewPostText}
                 />
               }
             />
@@ -36,6 +38,9 @@ const Main = (props) => {
                 <Dialogs
                   messagesData={props.dialogsData.messagesData}
                   dialogsData={props.dialogsData.dialogsData}
+                  addMessage={props.addMessage}
+                  newMessageText={props.dialogsData.newMessageText}
+                  upDateNewMessageText={props.upDateNewMessageText}
                   //   dialogsData={props.dialogsData}
                 />
               }
