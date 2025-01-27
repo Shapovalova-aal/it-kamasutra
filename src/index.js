@@ -1,19 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import state from "./Redux/state";
-import { addPost } from "./Redux/state";
+import store from "./Redux/state";
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(
-//   <App
-//     // messagesData={messagesData}
-//     // dialogsData={dialogsData}
-//     // postData={postData}
-//     state={state}
-//     addPost={addPost}
-//   />
-// );
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-import { reRenderEntireTree } from "./render";
-reRenderEntireTree(state);
+let reRenderEntireTree = (state) => {
+  //   console.log("reRenderEntireTree");
+
+  root.render(
+    <App
+      state={state}
+      //   addPost={store.addPost.bind(store)}
+      //   upDateNewPostText={store.upDateNewPostText.bind(store)}
+      //   addMessage={store.addMessage.bind(store)}
+      //   upDateNewMessageText={store.upDateNewMessageText.bind(store)}
+      dispatch={store.dispatch.bind(store)}
+    />
+  );
+};
+
+reRenderEntireTree(store.getState());
+store.subscribe(reRenderEntireTree);

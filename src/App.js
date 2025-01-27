@@ -4,23 +4,19 @@ import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 
 function App(props) {
-  //   debugger;
   return (
     <div className="wrapper">
       <Header />
 
       <Main
-        // messagesData={props.state.messagesData}
-        // dialogsData={props.dialogsData}
-        // postData={props.postData}
-
         dialogsData={props.state.dialogsPage}
         profileData={props.state.profilePage}
         navbarData={props.state.navBar}
-        addPost={props.addPost}
-        upDateNewPostText={props.upDateNewPostText}
-        addMessage={props.addMessage}
-        upDateNewMessageText={props.upDateNewMessageText}
+        // addPost={props.addPost}
+        // upDateNewPostText={props.upDateNewPostText}
+        // addMessage={props.addMessage}
+        // upDateNewMessageText={props.upDateNewMessageText}
+        dispatch={props.dispatch}
       />
       <Footer />
     </div>

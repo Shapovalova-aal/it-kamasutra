@@ -10,7 +10,6 @@ import classes from "./Main.module.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 
 const Main = (props) => {
-  //   debugger;
   return (
     <BrowserRouter>
       <main className={classes.main}>
@@ -24,11 +23,11 @@ const Main = (props) => {
               path="/"
               element={
                 <Profile
-                  // postData={props.postData}
                   postData={props.profileData.postData}
                   newPostText={props.profileData.newPostText}
-                  addPost={props.addPost}
-                  upDateNewPostText={props.upDateNewPostText}
+                  //   addPost={props.addPost}
+                  //   upDateNewPostText={props.upDateNewPostText}
+                  dispatch={props.dispatch}
                 />
               }
             />
@@ -38,10 +37,10 @@ const Main = (props) => {
                 <Dialogs
                   messagesData={props.dialogsData.messagesData}
                   dialogsData={props.dialogsData.dialogsData}
-                  addMessage={props.addMessage}
-                  newMessageText={props.dialogsData.newMessageText}
-                  upDateNewMessageText={props.upDateNewMessageText}
-                  //   dialogsData={props.dialogsData}
+                  //   addMessage={props.addMessage}
+                  //   newMessageText={props.dialogsData.newMessageText}
+                  //   upDateNewMessageText={props.upDateNewMessageText}
+                  dispatch={props.dispatch}
                 />
               }
             />

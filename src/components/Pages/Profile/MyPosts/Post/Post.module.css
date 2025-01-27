@@ -6,24 +6,34 @@
 }
 .item__logo {
   align-self: flex-start;
-  width: 30px;
+  flex: 0 0 10%;
+  max-width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: rgb(225, 227, 230);
 }
 .item__text {
   align-self: center;
-  flex: 0 0 85%;
+  flex: 0 0 80%;
   font-size: 16px;
   padding: 0px 0px 0px 20px;
 }
 .likes {
+  width: 90px;
+  height: 30px;
+  position: relative;
+  flex: 0 0 5%;
+  display: flex;
+  align-items: center;
   font-size: 13px;
-  padding: 0 0 0 6%;
+  padding: 0 1% 0 2%;
+  margin: 0 -1% 0 -2%;
 }
+
 .like {
   width: 20px;
   height: 20px;
+  margin: 0px 0px 0px 5px;
   background: url("https://img.icons8.com/?size=100&id=lFyaayFdhpED&format=png&color=E1E3E6")
     0 0 / cover no-repeat;
 }

@@ -8,8 +8,10 @@ const Post = (props) => {
     <div className={classes.posts__item}>
       <div className={classes.item__logo}></div>
       <div className={classes.item__text}>{props.message}</div>
-      <div className={classes.likes}>{props.likesCount}</div>
-      <div className={isActive}></div> {/*`${classes.like}` ${classes.active}*/}
+      <div className={classes.likes}>
+        {props.likesCount}
+        <div className={isActive}></div>
+      </div>
     </div>
   );
 };
