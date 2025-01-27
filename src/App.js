@@ -12,10 +12,6 @@ function App(props) {
         dialogsData={props.state.dialogsPage}
         profileData={props.state.profilePage}
         navbarData={props.state.navBar}
-        // addPost={props.addPost}
-        // upDateNewPostText={props.upDateNewPostText}
-        // addMessage={props.addMessage}
-        // upDateNewMessageText={props.upDateNewMessageText}
         dispatch={props.dispatch}
       />
       <Footer />

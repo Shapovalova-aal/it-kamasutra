@@ -5,7 +5,6 @@ import Settings from "../Pages/Settings/Settings";
 import Dialogs from "../Pages/Dialogs/Dialogs";
 import News from "../Pages/News/News";
 import Music from "../Pages/Music/Music";
-
 import classes from "./Main.module.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 
@@ -25,8 +24,6 @@ const Main = (props) => {
                 <Profile
                   postData={props.profileData.postData}
                   newPostText={props.profileData.newPostText}
-                  //   addPost={props.addPost}
-                  //   upDateNewPostText={props.upDateNewPostText}
                   dispatch={props.dispatch}
                 />
               }
@@ -37,9 +34,7 @@ const Main = (props) => {
                 <Dialogs
                   messagesData={props.dialogsData.messagesData}
                   dialogsData={props.dialogsData.dialogsData}
-                  //   addMessage={props.addMessage}
-                  //   newMessageText={props.dialogsData.newMessageText}
-                  //   upDateNewMessageText={props.upDateNewMessageText}
+                  newMessageText={props.dialogsData.newMessageText}
                   dispatch={props.dispatch}
                 />
               }

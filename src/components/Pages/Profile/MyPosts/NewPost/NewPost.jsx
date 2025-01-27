@@ -12,9 +12,7 @@ const NewPost = (props) => {
   //!     props.addPost();
   //!   };
   let onPostCange = () => {
-    // props.upDateNewPostText(newPostElement.current.value);
     let text = newPostElement.current.value;
-    // props.dispatch({ type: "UPDATE-NEW-POST-TEXT", newText: text });
     props.dispatch(upDateNewPostTextActionCreator(text));
   };
 
@@ -30,12 +28,7 @@ const NewPost = (props) => {
       {/* <button onClick={addPost} type="button">
         Send
       </button> */}
-      <ButtonWave
-        //   addPost={props.addPost}
-        dispatch={props.dispatch}
-      >
-        send
-      </ButtonWave>
+      <ButtonWave dispatch={props.dispatch}>send</ButtonWave>
     </div>
   );
 };

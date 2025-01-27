@@ -4,39 +4,8 @@ const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
 let store = {
-  //   addMessage() {
-  //     let newMessage = {
-  //       id: 6,
-  //       message: this._state.dialogsPage.newMessageText,
-  //       direction: "message_r",
-  //     };
-  //     this._state.dialogsPage.messagesData.push(newMessage);
-  //     this._state.dialogsPage.newMessageText = "";
-  //     this._callSubscriber(this._state);
-  //   },
-  //   upDateNewMessageText(newMessageText) {
-  //     this._state.dialogsPage.newMessageText = newMessageText;
-  //     this._callSubscriber(this._state);
-  //   },
-  //   addPost() {
-  //     let newPost = {
-  //       id: 5,
-  //       message: this._state.profilePage.newPostText,
-  //       likesCount: 0,
-  //     };
-  //     console.log(newPost);
-  //     this._state.profilePage.postData.push(newPost);
-  //     this._state.profilePage.newPostText = "";
-  //     this._callSubscriber(this._state);
-  //   },
-  //   upDateNewPostText(newText) {
-  //     this._state.profilePage.newPostText = newText;
-  //     this._callSubscriber(this._state);
-  //   },
-
   dispatch(action) {
     if (action.type === ADD_MESSAGE) {
-      //   debugger;
       let newMessage = {
         id: 6,
         message: this._state.dialogsPage.newMessageText,
@@ -46,7 +15,6 @@ let store = {
       this._state.dialogsPage.newMessageText = "";
       this._callSubscriber(this._state);
     } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      //   debugger;
       this._state.dialogsPage.newMessageText = action.newMessageText;
       this._callSubscriber(this._state);
     } else if (action.type === ADD_POST) {
@@ -55,7 +23,6 @@ let store = {
         message: this._state.profilePage.newPostText,
         likesCount: 0,
       };
-      //   console.log(newPost);
       this._state.profilePage.postData.push(newPost);
       this._state.profilePage.newPostText = "";
       this._callSubscriber(this._state);

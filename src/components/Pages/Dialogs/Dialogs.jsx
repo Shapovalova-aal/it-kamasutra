@@ -23,16 +23,14 @@ const Dialogs = (props) => {
     />
   ));
 
-  let newMessageElement = React.createRef();
+  let newMessageText = props.newMessageText;
 
   let addMessage = () => {
-    // props.dispatch({ type: "ADD-MESSAGE" });
     props.dispatch(addMessageActionCreator());
   };
 
-  let onMessageChange = () => {
-    let text = newMessageElement.current.value;
-    // props.dispatch({ type: "UPDATE-NEW-MESSAGE-TEXT", newMessageText: text });
+  let onMessageChange = (e) => {
+    let text = e.target.value;
     props.dispatch(upDateNewMessageTextActionCreator(text));
   };
 
@@ -43,11 +41,10 @@ const Dialogs = (props) => {
         {messagesElements}
         <div className={classes.addMessage}>
           <textarea
-            ref={newMessageElement}
             type="text"
             placeholder="Your message..."
-            value={props.newMessageText}
             onChange={onMessageChange}
+            value={newMessageText}
           />
           <button onClick={addMessage} type="button">
             <img src="https://img.icons8.com/?size=100&id=100004&format=png&color=e1e3e6" />
