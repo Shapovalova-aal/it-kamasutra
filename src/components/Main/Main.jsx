@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Profile from "../Pages/Profile/Profile";
 import Settings from "../Pages/Settings/Settings";
-import Dialogs from "../Pages/Dialogs/Dialogs";
+import DialogsContainer from "../Pages/DialogsContainer/DialogsContainer";
 import News from "../Pages/News/News";
 import Music from "../Pages/Music/Music";
 import classes from "./Main.module.css";
@@ -18,26 +18,10 @@ const Main = (props) => {
         />
         <div className={classes.content}>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <Profile
-                  postData={props.profileData.postData}
-                  newPostText={props.profileData.newPostText}
-                  dispatch={props.dispatch}
-                />
-              }
-            />
+            <Route path="/" element={<Profile store={props.store} />} />
             <Route
               path="/messages/*"
-              element={
-                <Dialogs
-                  messagesData={props.dialogsData.messagesData}
-                  dialogsData={props.dialogsData.dialogsData}
-                  newMessageText={props.dialogsData.newMessageText}
-                  dispatch={props.dispatch}
-                />
-              }
+              element={<DialogsContainer store={props.store} />}
             />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

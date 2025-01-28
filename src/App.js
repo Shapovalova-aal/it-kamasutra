@@ -8,12 +8,7 @@ function App(props) {
     <div className="wrapper">
       <Header />
 
-      <Main
-        dialogsData={props.state.dialogsPage}
-        profileData={props.state.profilePage}
-        navbarData={props.state.navBar}
-        dispatch={props.dispatch}
-      />
+      <Main store={props.store} navbarData={props.state.navBar} />
       <Footer />
     </div>
   );

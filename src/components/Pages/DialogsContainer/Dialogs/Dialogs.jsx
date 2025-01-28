@@ -2,17 +2,13 @@ import classes from "./Dialogs.module.css";
 import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {
-  addMessageActionCreator,
-  upDateNewMessageTextActionCreator,
-} from "../../../Redux/dialogReducer";
 
 const Dialogs = (props) => {
-  let dialogElement = props.dialogsData.map((d) => (
+  let dialogElement = props.dialogsElements.map((d) => (
     <DialogItem name={d.name} id={d.id} key={d.id} url={d.url} />
   ));
 
-  let messagesElements = props.messagesData.map((m) => (
+  let messagesElements = props.messagesElements.map((m) => (
     <Message
       message={m.message}
       direction={
@@ -26,12 +22,12 @@ const Dialogs = (props) => {
   let newMessageText = props.newMessageText;
 
   let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.addMessage();
   };
 
   let onMessageChange = (e) => {
     let text = e.target.value;
-    props.dispatch(upDateNewMessageTextActionCreator(text));
+    props.onMessageChange(text);
   };
 
   return (

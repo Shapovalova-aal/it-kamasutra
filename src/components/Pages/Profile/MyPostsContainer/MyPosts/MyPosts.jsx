@@ -4,14 +4,18 @@ import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
 const MyPosts = (props) => {
-  let postElement = props.postData.map((post) => (
+  let postElement = props.posts.map((post) => (
     <Post message={post.message} likesCount={post.likesCount} key={post.id} />
   ));
 
   return (
     <div className={classes.content__posts}>
       <div className={classes.content__title}>My posts</div>
-      <NewPost newPostText={props.newPostText} dispatch={props.dispatch} />
+      <NewPost
+        newPostText={props.newPostText}
+        addPost={props.addPost}
+        upDateNewPostText={props.upDateNewPostText}
+      />
       {postElement}
     </div>
   );
