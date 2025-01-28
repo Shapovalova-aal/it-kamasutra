@@ -1,4 +1,4 @@
-import { upDateNewPostTextActionCreator } from "../../../../../Redux/state";
+import { upDateNewPostTextActionCreator } from "../../../../../Redux/profileReducer";
 import ButtonGreen from "../../../../UI/button/ButtonGreen/ButtonGreen";
 import ButtonWave from "../../../../UI/button/ButtonWave/ButtonWave";
 import classes from "./NewPost.module.css";

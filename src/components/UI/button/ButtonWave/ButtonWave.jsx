@@ -1,11 +1,9 @@
 import React from "react";
 import classes from "./ButtonWave.module.css";
-import { addPostActionCreator } from "../../../../Redux/state";
+import { addPostActionCreator } from "../../../../Redux/profileReducer";
 
 const ButtonWave = (props) => {
   let addPost = () => {
-    // props.addPost();
-    // props.dispatch({ type: "ADD-POST" });
     props.dispatch(addPostActionCreator());
   };
   return (
