@@ -8,7 +8,10 @@ function App(props) {
     <div className="wrapper">
       <Header />
 
-      <Main store={props.store} navbarData={props.state.navBar} />
+      <Main
+        //   store={props.store}
+        navbarData={props.state.navBar}
+      />
       <Footer />
     </div>
   );

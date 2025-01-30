@@ -6,7 +6,9 @@ const Profile = (props) => {
   return (
     <>
       <ProfileInfo name="lorem l." city="lorem" age="40" phone="+732423532" />
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer
+      //   store={props.store}
+      />
     </>
   );
 };

@@ -18,10 +18,21 @@ const Main = (props) => {
         />
         <div className={classes.content}>
           <Routes>
-            <Route path="/" element={<Profile store={props.store} />} />
+            <Route
+              path="/"
+              element={
+                <Profile
+                // store={props.store}
+                />
+              }
+            />
             <Route
               path="/messages/*"
-              element={<DialogsContainer store={props.store} />}
+              element={
+                <DialogsContainer
+                // store={props.store}
+                />
+              }
             />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
