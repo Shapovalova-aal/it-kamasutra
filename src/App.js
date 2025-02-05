@@ -9,8 +9,8 @@ function App(props) {
       <Header />
 
       <Main
-        //   store={props.store}
-        navbarData={props.state.navBar}
+      //   store={props.store}
+      // navbarData={props.state.navBar}
       />
       <Footer />
     </div>

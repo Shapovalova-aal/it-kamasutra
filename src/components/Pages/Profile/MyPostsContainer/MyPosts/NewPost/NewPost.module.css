@@ -11,32 +11,24 @@
   padding: 10px 10px;
   resize: none;
   margin: 0px 0px 15px 0px;
-  background-color: rgb(41, 41, 41);
+  /* background-color: rgb(41, 41, 41); */
+  background-color: rgb(34, 34, 34);
   color: rgb(225, 227, 230);
 }
-/* .posts__new button {
-  align-items: center;
-  justify-content: end;
-  min-width: 15%;
-  min-height: 25px;
-  padding: 8px 20px;
-  border-radius: 8px;
-  background-color: rgb(75, 179, 75);
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.15) 0 1px 2px, rgba(44, 187, 99, 0.15) 0 2px 4px,
-    rgba(44, 187, 99, 0.15) 0 4px 8px, rgba(44, 187, 99, 0.15) 0 8px 16px,
-    rgba(44, 187, 99, 0.15) 0 16px 32px;
-  cursor: pointer;
-  font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
-  text-align: center;
-  transition: all 250ms;
+/* scroll styles */
+.posts__new textarea::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(34, 34, 34);
 }
-.posts__new button:hover {
-  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset,
-    rgba(44, 187, 99, 0.25) 0 1px 2px, rgba(44, 187, 99, 0.25) 0 2px 4px,
-    rgba(44, 187, 99, 0.25) 0 4px 8px, rgba(44, 187, 99, 0.25) 0 8px 16px,
-    rgba(44, 187, 99, 0.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-} */
+
+.posts__new textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(113, 170, 235, 0.6);
+}
+
+.posts__new textarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgb(34, 34, 34);
+}
+/* scroll styles */

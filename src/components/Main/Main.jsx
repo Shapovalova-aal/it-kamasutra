@@ -7,15 +7,16 @@ import News from "../Pages/News/News";
 import Music from "../Pages/Music/Music";
 import classes from "./Main.module.css";
 import { BrowserRouter, Routes, Route } from "react-router";
-
+import NavbarContainer from "../Navbar/NavbarContainer";
 const Main = (props) => {
   return (
     <BrowserRouter>
       <main className={classes.main}>
-        <Navbar
+        {/* <Navbar
           links={props.navbarData.links}
           friends={props.navbarData.friends}
-        />
+        /> */}
+        <NavbarContainer />
         <div className={classes.content}>
           <Routes>
             <Route
