@@ -54,11 +54,10 @@ let initialState = {
 const navbarReducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_IS_ACTIVE_POPUP: {
-      let stateCopy = { ...state };
-      stateCopy.isActivePopup = !stateCopy.isActivePopup;
-      //   console.log(stateCopy.isActivePopup);
-
-      return stateCopy;
+      return {
+        ...state,
+        isActivePopup: !state.isActivePopup,
+      };
     }
     default:
       return state;
