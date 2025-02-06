@@ -4,7 +4,8 @@ let initialState = {
     { id: 2, url: "/messages", linkName: "Messages" },
     { id: 3, url: "/news", linkName: "News" },
     { id: 4, url: "/music", linkName: "Music" },
-    { id: 5, url: "/settings", linkName: "Settings" },
+    { id: 5, url: "/users", linkName: "Find users" },
+    { id: 6, url: "/settings", linkName: "Settings" },
   ],
   friends: [
     {

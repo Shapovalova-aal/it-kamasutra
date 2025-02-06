@@ -8,6 +8,8 @@ import Music from "../Pages/Music/Music";
 import classes from "./Main.module.css";
 import { BrowserRouter, Routes, Route } from "react-router";
 import NavbarContainer from "../Navbar/NavbarContainer";
+import FindUsers from "../Pages/FindUsers/FindUsers";
+import UsersContainer from "../Pages/FindUsers/UsersContainer";
 const Main = (props) => {
   return (
     <BrowserRouter>
@@ -37,6 +39,7 @@ const Main = (props) => {
             />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
+            <Route path="/users" element={<UsersContainer />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
