@@ -1,5 +1,8 @@
 import React from "react";
 import classes from "./FindUsers.module.css";
+// import * as axios from "axios";
+import axios from "axios";
+import userPhoto from "../../../Accetc/MockImages/user.jpg";
 const FindUsers = (props) => {
   let follow = [
     { id: 1, l: "F" },
@@ -21,6 +24,13 @@ const FindUsers = (props) => {
   ];
   let fol = follow.map((letter) => <span key={letter.id}> {letter.l} </span>);
   let unfol = unfollow.map((letter) => <span key={letter.id}>{letter.l}</span>);
+
+  //   axios
+  //     .get("https://social-network.samuraijs.com/api/1.0/users")
+  //     .then((response) => {
+  //       console.log(response.data.items);
+  //     });
+
   return (
     <>
       <div className={classes.findUsers__title}>Find users</div>
@@ -32,7 +42,10 @@ const FindUsers = (props) => {
         {props.users.map((u) => (
           <div className={classes.user} key={u.id}>
             <div className={classes.user__img}>
-              <img src={u.photoUrl} alt="photo" />
+              <img
+                src={u.photoUrl != null ? u.photoUrl : userPhoto}
+                alt="photo"
+              />
             </div>
             <div className={classes.user__body}>
               <div className={classes.user__name}>{u.fullName} </div>

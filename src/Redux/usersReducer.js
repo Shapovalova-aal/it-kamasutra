@@ -7,8 +7,7 @@ let initialState = {
     {
       id: 1,
       fullName: "Alex f",
-      photoUrl:
-        "https://i.pinimg.com/474x/2f/b9/13/2fb9135aeca1d7ed9d9112035ab91754.jpg",
+      photoUrl: null, //'https://i.pinimg.com/474x/2f/b9/13/2fb9135aeca1d7ed9d9112035ab91754.jpg'
       followed: false,
       location: { country: "Russia", city: "Moscow" },
       status: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",

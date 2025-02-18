@@ -161,7 +161,8 @@
 }
 
 .song__img:hover {
-  background: url(../../../images/iconizer-Round.svg) 0 0 / cover no-repeat,
+  background: url(../../../Accetc/Images/iconizer-Round.svg) 0 0 / cover
+      no-repeat,
     url(https://img.icons8.com/?size=100&id=35855&format=png&color=000000) 0 0 /
       cover no-repeat;
   transition: all 0.5s ease 0s;
