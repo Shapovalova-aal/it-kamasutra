@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import FindUsers from "./FindUsers";
+import Users from "./Users";
 import { followAC, setUsersAC, unFollowAC } from "../../../Redux/usersReducer";
 
 const mapStateToProps = (state) => {
@@ -23,6 +24,6 @@ const mapDispathToProps = (dispatch) => {
   };
 };
 
-const UsersContainer = connect(mapStateToProps, mapDispathToProps)(FindUsers);
+const UsersContainer = connect(mapStateToProps, mapDispathToProps)(Users);
 
 export default UsersContainer;
