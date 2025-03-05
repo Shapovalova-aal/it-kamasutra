@@ -3,6 +3,8 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
+const SET_AMOUND_NUMBER_PAGE = "SET-AMOUND-NUMBER-PAGE";
+
 let initialState = {
   users: [
     // {
@@ -44,6 +46,7 @@ let initialState = {
   pageSize: 5,
   totalUserCount: 0,
   currentPage: 1,
+  amoundNumberPage: 20,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -83,6 +86,11 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         totalUserCount: action.count,
       };
+    case SET_AMOUND_NUMBER_PAGE:
+      return {
+        ...state,
+        amoundNumberPage: action.amoundNumberPage,
+      };
     default:
       return state;
   }
@@ -110,5 +118,10 @@ export const setCurrentPageAC = (currentPage) => ({
 export const setTotalUserCountAC = (totalUserCount) => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUserCount,
+});
+
+export const setAmoundNumberPageAC = (amoundNumberPage) => ({
+  type: SET_AMOUND_NUMBER_PAGE,
+  amoundNumberPage,
 });
 export default usersReducer;

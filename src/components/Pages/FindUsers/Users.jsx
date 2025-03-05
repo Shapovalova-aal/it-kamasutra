@@ -1,32 +1,9 @@
 import React from "react";
 import classes from "./FindUsers.module.css";
-import axios from "axios";
 import userPhoto from "../../../Accetc/MockImages/user.jpg";
-class Users extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //   }
-  componentDidMount() {
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUserCount(response.data.totalCount);
-      });
-  }
-  onPageChanged = (pageNumber) => {
-    this.props.setCurrentPage(pageNumber);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.setUsers(response.data.items);
-      });
-  };
-  follow = (
+
+const Users = (props) => {
+  let follow = (
     <>
       <span>F</span>
       <span>o</span>
@@ -36,7 +13,7 @@ class Users extends React.Component {
       <span>w</span>
     </>
   );
-  unfollow = (
+  let unfollow = (
     <>
       <span>U</span>
       <span>n</span>
@@ -49,89 +26,108 @@ class Users extends React.Component {
     </>
   );
 
-  render() {
-    // debugger;
-    let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
-    let pages = [];
-    for (let i = 1; i < pagesCount; i++) {
-      pages.push(i);
-    }
-    return (
-      <>
-        <div className={classes.findUsers__title}>Find users</div>
-        <div className={classes.findUsers__search__container}>
-          <input type="text" placeholder="Search users" />
-          <button type="button"></button>
-        </div>
+  let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
+  let pages = [];
+  for (let i = 1; i < pagesCount; i++) {
+    pages.push(i);
+  }
+  return (
+    <>
+      <div className={classes.findUsers__title}>Find users</div>
+      <div className={classes.findUsers__search__container}>
+        <input type="text" placeholder="Search users" />
+        <button type="button"></button>
+      </div>
 
-        <div className={classes.btn__navigation}>
-          {pages.map((p) => {
-            return (
-              <span
-                className={
-                  this.props.currentPage === p
-                    ? classes.selectedPage
-                    : classes.pageNumber
-                }
+      <div className={classes.btn__navigation}>
+        <div
+          className={classes.arrows_l}
+          onClick={() => {
+            props.setAmoundNumberPage(props.amoundNumberPage - 20);
+          }}
+        ></div>
+        <div className={classes.btn__nav}>
+          {pages
+            .filter(
+              (p) =>
+                p <= props.amoundNumberPage && p >= props.amoundNumberPage - 20
+            )
+            .map((p) => {
+              return (
+                <span
+                  key={p}
+                  className={
+                    props.currentPage === p
+                      ? classes.selectedPage
+                      : classes.pageNumber
+                  }
+                  onClick={() => {
+                    //   this.props.setCurrentPage(p);
+                    props.onPageChanged(p);
+                  }}
+                >
+                  {p}
+                </span>
+              );
+            })}
+        </div>
+        <div
+          className={classes.arrows_r}
+          onClick={() => {
+            props.setAmoundNumberPage(props.amoundNumberPage + 20);
+          }}
+        ></div>
+      </div>
+
+      <div className={classes.users__container}>
+        {props.users.map((u) => (
+          <div className={classes.user} key={u.id}>
+            <div className={classes.user__img}>
+              <img
+                src={u.photos.small != null ? u.photos.small : userPhoto}
+                alt="photo"
+              />
+            </div>
+            <div className={classes.user__body}>
+              <div className={classes.user__name}>{u.name} </div>
+              {/* <div>{u.status}</div> */}
+              <div className={classes.user__city}>
+                {/* {"u.location.city"}, {"u.location.country"}, */}
+                {u.status != null && u.status != ""
+                  ? u.status
+                  : "status missing"}
+                <span> lorem </span>
+              </div>
+            </div>
+            {u.followed ? (
+              <button
+                className={classes.btn}
                 onClick={() => {
-                  //   this.props.setCurrentPage(p);
-                  this.onPageChanged(p);
+                  props.unFollow(u.id);
                 }}
               >
-                {p}
-              </span>
-            );
-          })}
-        </div>
-
-        <div className={classes.users__container}>
-          {this.props.users.map((u) => (
-            <div className={classes.user} key={u.id}>
-              <div className={classes.user__img}>
-                <img
-                  src={u.photos.small != null ? u.photos.small : userPhoto}
-                  alt="photo"
-                />
-              </div>
-              <div className={classes.user__body}>
-                <div className={classes.user__name}>{u.name} </div>
-                {/* <div>{u.status}</div> */}
-                <div className={classes.user__city}>
-                  {/* {"u.location.city"}, {"u.location.country"}, */}
-                  {u.status != null ? u.status : "status missing"}
-                  <span> lorem </span>
-                </div>
-              </div>
-              {u.followed ? (
-                <button
-                  className={classes.btn}
-                  onClick={() => {
-                    this.props.unFollow(u.id);
-                  }}
-                >
-                  <span className={classes.span_mother}>{this.unfollow}</span>
-                  <span className={classes.span_mother_2}>{this.unfollow}</span>
-                </button>
-              ) : (
-                <button
-                  className={classes.btn}
-                  onClick={() => {
-                    this.props.follow(u.id);
-                  }}
-                >
-                  <span className={classes.span_mother}>{this.follow}</span>
-                  <span className={classes.span_mother_2}>{this.follow}</span>
-                </button>
-              )}
-            </div>
-          ))}
-          <button className={classes.btn__seeMore} type="button">
-            See more
-          </button>
-        </div>
-      </>
-    );
-  }
-}
+                <span className={classes.span_mother}>{unfollow}</span>
+                <span className={classes.span_mother_2}>{unfollow}</span>
+              </button>
+            ) : (
+              <button
+                className={classes.btn}
+                onClick={() => {
+                  props.follow(u.id);
+                }}
+              >
+                <span className={classes.span_mother}>{follow}</span>
+                <span className={classes.span_mother_2}>{follow}</span>
+              </button>
+            )}
+          </div>
+        ))}
+        <button className={classes.btn__seeMore} type="button">
+          See more
+        </button>
+      </div>
+    </>
+  );
+};
 
 export default Users;
