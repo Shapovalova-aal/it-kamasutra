@@ -8,11 +8,24 @@ class Users extends React.Component {
   //   }
   componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
+      )
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+        this.props.setTotalUserCount(response.data.totalCount);
+      });
+  }
+  onPageChanged = (pageNumber) => {
+    this.props.setCurrentPage(pageNumber);
+    axios
+      .get(
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
+      )
       .then((response) => {
         this.props.setUsers(response.data.items);
       });
-  }
+  };
   follow = (
     <>
       <span>F</span>
@@ -38,6 +51,11 @@ class Users extends React.Component {
 
   render() {
     // debugger;
+    let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize);
+    let pages = [];
+    for (let i = 1; i < pagesCount; i++) {
+      pages.push(i);
+    }
     return (
       <>
         <div className={classes.findUsers__title}>Find users</div>
@@ -45,6 +63,27 @@ class Users extends React.Component {
           <input type="text" placeholder="Search users" />
           <button type="button"></button>
         </div>
+
+        <div className={classes.btn__navigation}>
+          {pages.map((p) => {
+            return (
+              <span
+                className={
+                  this.props.currentPage === p
+                    ? classes.selectedPage
+                    : classes.pageNumber
+                }
+                onClick={() => {
+                  //   this.props.setCurrentPage(p);
+                  this.onPageChanged(p);
+                }}
+              >
+                {p}
+              </span>
+            );
+          })}
+        </div>
+
         <div className={classes.users__container}>
           {this.props.users.map((u) => (
             <div className={classes.user} key={u.id}>
