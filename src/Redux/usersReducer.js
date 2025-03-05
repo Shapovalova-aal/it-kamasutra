@@ -4,6 +4,7 @@ const SET_USERS = "SET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
 const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
 const SET_AMOUND_NUMBER_PAGE = "SET-AMOUND-NUMBER-PAGE";
+const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING";
 
 let initialState = {
   users: [
@@ -47,6 +48,7 @@ let initialState = {
   totalUserCount: 0,
   currentPage: 1,
   amoundNumberPage: 20,
+  isFetching: false,
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -91,6 +93,11 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         amoundNumberPage: action.amoundNumberPage,
       };
+    case TOGGLE_IS_FETCHING:
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
     default:
       return state;
   }
@@ -100,17 +107,14 @@ export const followAC = (userID) => ({
   type: FOLLOW,
   userID,
 });
-
 export const unFollowAC = (userID) => ({
   type: UNFOLLOW,
   userID,
 });
-
 export const setUsersAC = (users) => ({
   type: SET_USERS,
   users,
 });
-
 export const setCurrentPageAC = (currentPage) => ({
   type: SET_CURRENT_PAGE,
   currentPage,
@@ -119,9 +123,13 @@ export const setTotalUserCountAC = (totalUserCount) => ({
   type: SET_TOTAL_USERS_COUNT,
   count: totalUserCount,
 });
-
 export const setAmoundNumberPageAC = (amoundNumberPage) => ({
   type: SET_AMOUND_NUMBER_PAGE,
   amoundNumberPage,
 });
+export const toggleIsFetchingAC = (isFetching) => ({
+  type: TOGGLE_IS_FETCHING,
+  isFetching,
+});
+
 export default usersReducer;

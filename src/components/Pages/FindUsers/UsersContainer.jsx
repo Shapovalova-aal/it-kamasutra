@@ -8,28 +8,35 @@ import {
   setCurrentPageAC,
   setTotalUserCountAC,
   setUsersAC,
+  toggleIsFetching,
+  toggleIsFetchingAC,
   unFollowAC,
 } from "../../../Redux/usersReducer";
 import axios from "axios";
+import Preloader from "../../UI/Preloader/Preloader";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
         this.props.setTotalUserCount(response.data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
       });
   };
@@ -57,7 +64,9 @@ class UsersAPIComponent extends React.Component {
   //   );
 
   render() {
-    return (
+    return this.props.isFetching ? (
+      <Preloader />
+    ) : (
       <Users
         pageSize={this.props.pageSize}
         totalUserCount={this.props.totalUserCount}
@@ -80,6 +89,7 @@ const mapStateToProps = (state) => {
     totalUserCount: state.usersPage.totalUserCount,
     currentPage: state.usersPage.currentPage,
     amoundNumberPage: state.usersPage.amoundNumberPage,
+    isFetching: state.usersPage.isFetching,
   };
 };
 
@@ -102,6 +112,9 @@ const mapDispathToProps = (dispatch) => {
     },
     setAmoundNumberPage: (amoundNumberPage) => {
       dispatch(setAmoundNumberPageAC(amoundNumberPage));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching));
     },
   };
 };
