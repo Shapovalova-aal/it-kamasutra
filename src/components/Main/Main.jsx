@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import Profile from "../Pages/Profile/Profile";
+// import Profile from "../Pages/Profile/Profile";
 import Settings from "../Pages/Settings/Settings";
 import DialogsContainer from "../Pages/DialogsContainer/DialogsContainer";
 import News from "../Pages/News/News";
@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import NavbarContainer from "../Navbar/NavbarContainer";
 import FindUsers from "../Pages/FindUsers/FindUsers";
 import UsersContainer from "../Pages/FindUsers/UsersContainer";
+import ProfileContainer from "../Pages/ProfileContainer/ProfileContainer";
 const Main = (props) => {
   return (
     <BrowserRouter>
@@ -24,7 +25,7 @@ const Main = (props) => {
             <Route
               path="/profile/*"
               element={
-                <Profile
+                <ProfileContainer
                 // store={props.store}
                 />
               }

@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./FindUsers.module.css";
 import userPhoto from "../../../Accetc/MockImages/user.jpg";
+import { NavLink } from "react-router";
 
 const Users = (props) => {
   let follow = (
@@ -83,10 +84,12 @@ const Users = (props) => {
         {props.users.map((u) => (
           <div className={classes.user} key={u.id}>
             <div className={classes.user__img}>
-              <img
-                src={u.photos.small != null ? u.photos.small : userPhoto}
-                alt="photo"
-              />
+              <NavLink to={"/profile/" + u.id}>
+                <img
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  alt="photo"
+                />
+              </NavLink>
             </div>
             <div className={classes.user__body}>
               <div className={classes.user__name}>{u.name} </div>
