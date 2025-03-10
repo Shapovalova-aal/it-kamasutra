@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import FindUsers from "./FindUsers";
 import Users from "./Users";
 import {
-  followAC,
-  setAmoundNumberPageAC,
-  setCurrentPageAC,
-  setTotalUserCountAC,
-  setUsersAC,
+  follow,
+  setAmoundNumberPage,
+  setCurrentPage,
+  setTotalUserCount,
+  setUsers,
   toggleIsFetching,
-  toggleIsFetchingAC,
-  unFollowAC,
+  unFollow,
 } from "../../../Redux/usersReducer";
 import axios from "axios";
 import Preloader from "../../UI/Preloader/Preloader";
@@ -93,35 +92,40 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispathToProps = (dispatch) => {
-  return {
-    follow: (userID) => {
-      dispatch(followAC(userID));
-    },
-    unFollow: (userID) => {
-      dispatch(unFollowAC(userID));
-    },
-    setUsers: (users) => {
-      dispatch(setUsersAC(users));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setTotalUserCount: (totalCount) => {
-      dispatch(setTotalUserCountAC(totalCount));
-    },
-    setAmoundNumberPage: (amoundNumberPage) => {
-      dispatch(setAmoundNumberPageAC(amoundNumberPage));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingAC(isFetching));
-    },
-  };
-};
+// const mapDispathToProps = (dispatch) => {
+//   return {
+//     follow: (userID) => {
+//       dispatch(followAC(userID));
+//     },
+//     unFollow: (userID) => {
+//       dispatch(unFollowAC(userID));
+//     },
+//     setUsers: (users) => {
+//       dispatch(setUsersAC(users));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber));
+//     },
+//     setTotalUserCount: (totalCount) => {
+//       dispatch(setTotalUserCountAC(totalCount));
+//     },
+//     setAmoundNumberPage: (amoundNumberPage) => {
+//       dispatch(setAmoundNumberPageAC(amoundNumberPage));
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingAC(isFetching));
+//     },
+//   };
+// };
 
-const UsersContainer = connect(
-  mapStateToProps,
-  mapDispathToProps
-)(UsersAPIComponent);
+const UsersContainer = connect(mapStateToProps, {
+  follow,
+  unFollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUserCount,
+  setAmoundNumberPage,
+  toggleIsFetching,
+})(UsersAPIComponent);
 
 export default UsersContainer;

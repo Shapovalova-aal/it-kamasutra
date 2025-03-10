@@ -22,7 +22,7 @@ const Main = (props) => {
         <div className={classes.content}>
           <Routes>
             <Route
-              path="/"
+              path="/profile/*"
               element={
                 <Profile
                 // store={props.store}

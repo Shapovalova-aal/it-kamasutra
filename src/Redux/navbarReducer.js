@@ -1,6 +1,6 @@
 let initialState = {
   links: [
-    { id: 1, url: "/", linkName: "Profile" },
+    { id: 1, url: "/profile", linkName: "Profile" },
     { id: 2, url: "/messages", linkName: "Messages" },
     { id: 3, url: "/news", linkName: "News" },
     { id: 4, url: "/music", linkName: "Music" },
