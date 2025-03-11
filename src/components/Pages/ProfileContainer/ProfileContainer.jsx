@@ -3,15 +3,27 @@ import Profile from "../ProfileContainer/Profile/Profile";
 // import { setUserProfile } from "../../../../Redux/profileReducer";
 import {
   setUserProfile,
-  upDateNewPostTextActionCreator,
-  addPostActionCreator,
+  upDateNewPostText,
+  addPost,
 } from "../../../Redux/profileReducer";
 import axios from "axios";
 import { connect } from "react-redux";
+import { useParams } from "react-router";
+function ProfileContainerWrapper(props) {
+  const userId = useParams();
+  //   debugger;
+  return <ProfileContainer {...props} userId={userId} />;
+}
+
 class ProfileContainer extends React.Component {
   componentDidMount() {
+    // debugger;
+    let userId = this.props.userId.userId;
+    if (!userId) {
+      userId = 2;
+    }
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
       .then((response) => {
         this.props.setUserProfile(response.data);
       });
@@ -30,6 +42,6 @@ let mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   setUserProfile,
-  upDateNewPostText: upDateNewPostTextActionCreator,
-  addPost: addPostActionCreator,
-})(ProfileContainer);
+  upDateNewPostText,
+  addPost,
+})(ProfileContainerWrapper);

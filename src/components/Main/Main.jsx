@@ -23,7 +23,7 @@ const Main = (props) => {
         <div className={classes.content}>
           <Routes>
             <Route
-              path="/profile/*"
+              path="/profile/:userId?"
               element={
                 <ProfileContainer
                 // store={props.store}

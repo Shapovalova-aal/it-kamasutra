@@ -58,4 +58,17 @@
 .description__text {
   line-height: 20px;
   text-align: left;
+  display: flex;
+  align-items: center;
+}
+.description__text a {
+  padding: 0px 0px 0px 5px;
+  cursor: pointer;
+  color: rgb(225, 227, 230);
+}
+.text__column1 {
+}
+
+.text__column2 {
+  margin: 0px 0px 0px 70px;
 }

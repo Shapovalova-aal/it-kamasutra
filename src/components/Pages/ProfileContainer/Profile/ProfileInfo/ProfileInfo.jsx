@@ -21,9 +21,39 @@ const ProfileInfo = (props) => {
             {props.profile.fullName}
           </div>
           <div className={classes.description__text}>
-            <p>About me: {props.profile.aboutMe}</p>
-            <p>Vk: {props.profile.contacts.vk}</p>
-            <p>Github: {props.profile.contacts.github}</p>
+            <div className={classes.text__column1}>
+              <p>About me: {props.profile.aboutMe}</p>
+              <p>
+                I'm looking for a job:
+                {props.profile.lookingForAJob ? " yes" : " no"}
+              </p>
+              <p>
+                Job description:
+                {props.profile.lookingForAJob
+                  ? " " + props.profile.lookingForAJobDescription
+                  : " no"}
+              </p>
+            </div>
+            <div className={classes.text__column2}>
+              <p>
+                Vk:
+                <a href={props.profile.contacts.vk}>
+                  {props.profile.contacts.vk}
+                </a>
+              </p>
+              <p>
+                Instagram:
+                <a href={props.profile.contacts.instagram}>
+                  {props.profile.contacts.instagram}
+                </a>
+              </p>
+              <p>
+                Github:
+                <a href={props.profile.contacts.github}>
+                  {props.profile.contacts.github}
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
