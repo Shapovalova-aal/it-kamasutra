@@ -39,3 +39,16 @@
   color: rgb(225, 227, 230);
   font-size: 16px;
 }
+.header__login {
+  color: rgb(225, 227, 230);
+  padding: 15px 15px;
+  margin: 0px 0px 0px 10px;
+  border-radius: 14px;
+  font-size: 16px;
+}
+.header__login:hover {
+  background-color: rgba(41, 41, 41, 0.8);
+}
+.header__login a {
+  color: rgb(225, 227, 230);
+}
