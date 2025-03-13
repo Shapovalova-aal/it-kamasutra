@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
+import { profileAPI } from "../../../API/API";
 function ProfileContainerWrapper(props) {
   const userId = useParams();
   return <ProfileContainer {...props} userId={userId} />;
@@ -20,11 +21,12 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       userId = 2;
     }
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });
+    // axios
+    //   .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+    profileAPI.getUserProfile(userId).then((response) => {
+      //   debugger;
+      this.props.setUserProfile(response); //this.props.setUserProfile(response.data);
+    });
   }
   render() {
     return <Profile {...this.props} />;

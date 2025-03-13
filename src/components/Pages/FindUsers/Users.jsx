@@ -3,6 +3,7 @@ import classes from "./FindUsers.module.css";
 import userPhoto from "../../../Accetc/MockImages/user.jpg";
 import { NavLink } from "react-router";
 import axios from "axios";
+import { usersAPI } from "../../../API/API";
 
 const Users = (props) => {
   let follow = (
@@ -107,21 +108,21 @@ const Users = (props) => {
               <button
                 className={classes.btn}
                 onClick={() => {
-                  axios
-                    .delete(
-                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                      {
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
-                        },
-                      }
-                    )
-                    .then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.unFollow(u.id);
-                      }
-                    });
+                  //   axios
+                  //     .delete(
+                  //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                  //       {
+                  //         withCredentials: true,
+                  //         headers: {
+                  //           "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
+                  //         },
+                  //       }
+                  //     )
+                  usersAPI.unfollow(u.id).then((resultCode) => {
+                    if (resultCode == 0) {
+                      props.unFollow(u.id);
+                    }
+                  });
                 }}
               >
                 <span className={classes.span_mother}>{unfollow}</span>
@@ -131,22 +132,27 @@ const Users = (props) => {
               <button
                 className={classes.btn}
                 onClick={() => {
-                  axios
-                    .post(
-                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                      {},
-                      {
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
-                        },
-                      }
-                    )
-                    .then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.follow(u.id);
-                      }
-                    });
+                  //   axios
+                  //     .post(
+                  //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                  //       {},
+                  //       {
+                  //         withCredentials: true,
+                  //         headers: {
+                  //           "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
+                  //         },
+                  //       }
+                  //     )
+                  usersAPI.follow(u.id).then((resultCode) => {
+                    if (resultCode == 0) {
+                      props.follow(u.id);
+                    }
+                  });
+                  // .then((response) => {
+                  //   if (response.data.resultCode == 0) {
+                  //     props.follow(u.id);
+                  //   }
+                  // });
                 }}
               >
                 <span className={classes.span_mother}>{follow}</span>
