@@ -11,13 +11,11 @@ import { connect } from "react-redux";
 import { useParams } from "react-router";
 function ProfileContainerWrapper(props) {
   const userId = useParams();
-  //   debugger;
   return <ProfileContainer {...props} userId={userId} />;
 }
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    // debugger;
     let userId = this.props.userId.userId;
     if (!userId) {
       userId = 2;

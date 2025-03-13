@@ -13,39 +13,39 @@ import UsersContainer from "../Pages/FindUsers/UsersContainer";
 import ProfileContainer from "../Pages/ProfileContainer/ProfileContainer";
 const Main = (props) => {
   return (
-    <BrowserRouter>
-      <main className={classes.main}>
-        {/* <Navbar
+    // <BrowserRouter>
+    <main className={classes.main}>
+      {/* <Navbar
           links={props.navbarData.links}
           friends={props.navbarData.friends}
         /> */}
-        <NavbarContainer />
-        <div className={classes.content}>
-          <Routes>
-            <Route
-              path="/profile/:userId?"
-              element={
-                <ProfileContainer
-                // store={props.store}
-                />
-              }
-            />
-            <Route
-              path="/messages/*"
-              element={
-                <DialogsContainer
-                // store={props.store}
-                />
-              }
-            />
-            <Route path="/news" element={<News />} />
-            <Route path="/music" element={<Music />} />
-            <Route path="/users" element={<UsersContainer />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </div>
-      </main>
-    </BrowserRouter>
+      <NavbarContainer />
+      <div className={classes.content}>
+        <Routes>
+          <Route
+            path="/profile/:userId?"
+            element={
+              <ProfileContainer
+              // store={props.store}
+              />
+            }
+          />
+          <Route
+            path="/messages/*"
+            element={
+              <DialogsContainer
+              // store={props.store}
+              />
+            }
+          />
+          <Route path="/news" element={<News />} />
+          <Route path="/music" element={<Music />} />
+          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </div>
+    </main>
+    // </BrowserRouter>
   );
 };
 
