@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./FindUsers.module.css";
-import userPhoto from "../../../Accetc/MockImages/user.jpg";
+import userPhoto from "../../../Accetc/MockImages/userCat.jpg";
 import { NavLink } from "react-router";
 import axios from "axios";
 import { usersAPI } from "../../../API/API";
@@ -30,8 +30,9 @@ const Users = (props) => {
   );
 
   let pagesCount = Math.ceil(props.totalUserCount / props.pageSize);
+  //   console.log("pagesCount", pagesCount);
   let pages = [];
-  for (let i = 1; i < pagesCount; i++) {
+  for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
   return (
@@ -46,7 +47,11 @@ const Users = (props) => {
         <div
           className={classes.arrows_l}
           onClick={() => {
+            // console.log(props.amoundNumberPage);
             props.setAmoundNumberPage(props.amoundNumberPage - 20);
+            if (props.amoundNumberPage - 20 <= 0) {
+              props.setAmoundNumberPage(20);
+            }
           }}
         ></div>
         <div className={classes.btn__nav}>
@@ -78,6 +83,9 @@ const Users = (props) => {
           className={classes.arrows_r}
           onClick={() => {
             props.setAmoundNumberPage(props.amoundNumberPage + 20);
+            if (props.amoundNumberPage > pagesCount) {
+              props.setAmoundNumberPage(20);
+            }
           }}
         ></div>
       </div>
@@ -106,8 +114,10 @@ const Users = (props) => {
             </div>
             {u.followed ? (
               <button
+                disabled={props.followingInProgress.some((id) => id === u.id)}
                 className={classes.btn}
                 onClick={() => {
+                  props.toggleFollowingProgress(true, u.id);
                   //   axios
                   //     .delete(
                   //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -122,6 +132,7 @@ const Users = (props) => {
                     if (resultCode == 0) {
                       props.unFollow(u.id);
                     }
+                    props.toggleFollowingProgress(false, u.id);
                   });
                 }}
               >
@@ -130,8 +141,11 @@ const Users = (props) => {
               </button>
             ) : (
               <button
+                disabled={props.followingInProgress.some((id) => id === u.id)}
                 className={classes.btn}
                 onClick={() => {
+                  props.toggleFollowingProgress(true, u.id);
+                  //   console.log(e.target);
                   //   axios
                   //     .post(
                   //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -147,6 +161,7 @@ const Users = (props) => {
                     if (resultCode == 0) {
                       props.follow(u.id);
                     }
+                    props.toggleFollowingProgress(false, u.id);
                   });
                   // .then((response) => {
                   //   if (response.data.resultCode == 0) {

@@ -47,7 +47,12 @@
   /* margin: 0px 5px 0px 0px; */
   height: 100%;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
 .arrows_l,
 .arrows_r {
   background-color: rgb(34, 34, 34);
@@ -202,6 +207,10 @@
 .btn:hover {
   background-color: rgba(47, 47, 47, 0.8);
   transition: background-color 0.5s ease 0s;
+}
+.btn:disabled {
+  background-color: rgb(56, 56, 56);
+  color: rgb(109, 125, 145);
 }
 
 .btn .span_mother {

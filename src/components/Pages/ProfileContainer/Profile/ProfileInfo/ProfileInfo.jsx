@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../../../UI/Preloader/Preloader";
-
+import userPhoto from "../../../../../Accetc/MockImages/userCat.jpg";
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -12,7 +12,11 @@ const ProfileInfo = (props) => {
       <div className={classes.content__info}>
         <div className={classes.info__avatar}>
           <img
-            src={props.profile.photos.large} //https://i.pinimg.com/736x/ea/11/a8/ea11a8b0dc2395c6c9e6122477293c32.jpg
+            src={
+              props.profile.photos.large != null
+                ? props.profile.photos.large
+                : userPhoto
+            }
             alt=""
           />
         </div>
