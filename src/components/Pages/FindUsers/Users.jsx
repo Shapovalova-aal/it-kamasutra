@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./FindUsers.module.css";
 import userPhoto from "../../../Accetc/MockImages/userCat.jpg";
 import { NavLink } from "react-router";
-import axios from "axios";
-import { usersAPI } from "../../../API/API";
+// import axios from "axios";
+// import { usersAPI } from "../../../API/API";
 
 const Users = (props) => {
   let follow = (
@@ -117,23 +117,14 @@ const Users = (props) => {
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 className={classes.btn}
                 onClick={() => {
-                  props.toggleFollowingProgress(true, u.id);
-                  //   axios
-                  //     .delete(
-                  //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                  //       {
-                  //         withCredentials: true,
-                  //         headers: {
-                  //           "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
-                  //         },
-                  //       }
-                  //     )
-                  usersAPI.unfollow(u.id).then((resultCode) => {
-                    if (resultCode == 0) {
-                      props.unFollow(u.id);
-                    }
-                    props.toggleFollowingProgress(false, u.id);
-                  });
+                  //   props.toggleFollowingProgress(true, u.id);
+                  //   usersAPI.unfollow(u.id).then((resultCode) => {
+                  //     if (resultCode == 0) {
+                  //       props.unFollow(u.id);
+                  //     }
+                  //     props.toggleFollowingProgress(false, u.id);
+                  //   });
+                  props.unfollow(u.id);
                 }}
               >
                 <span className={classes.span_mother}>{unfollow}</span>
@@ -144,30 +135,14 @@ const Users = (props) => {
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 className={classes.btn}
                 onClick={() => {
-                  props.toggleFollowingProgress(true, u.id);
-                  //   console.log(e.target);
-                  //   axios
-                  //     .post(
-                  //       `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                  //       {},
-                  //       {
-                  //         withCredentials: true,
-                  //         headers: {
-                  //           "API-KEY": "f1558e56-8f04-4e51-b35f-aecdba3a8ed8",
-                  //         },
-                  //       }
-                  //     )
-                  usersAPI.follow(u.id).then((resultCode) => {
-                    if (resultCode == 0) {
-                      props.follow(u.id);
-                    }
-                    props.toggleFollowingProgress(false, u.id);
-                  });
-                  // .then((response) => {
-                  //   if (response.data.resultCode == 0) {
-                  //     props.follow(u.id);
-                  //   }
-                  // });
+                  //   props.toggleFollowingProgress(true, u.id);
+                  //   usersAPI.follow(u.id).then((resultCode) => {
+                  //     if (resultCode == 0) {
+                  //       props.follow(u.id);
+                  //     }
+                  //     props.toggleFollowingProgress(false, u.id);
+                  //   });
+                  props.follow(u.id);
                 }}
               >
                 <span className={classes.span_mother}>{follow}</span>
