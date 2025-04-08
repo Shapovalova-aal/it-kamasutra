@@ -5,6 +5,7 @@ import {
 } from "../../../Redux/dialogReducer";
 // import StoreContext from "../../../StoreContext";
 import Dialogs from "./Dialogs/Dialogs";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 
 // const DialogsContainer = () => {
 //   //props
@@ -35,6 +36,8 @@ import Dialogs from "./Dialogs/Dialogs";
 //   );
 // };
 
+let AuthRedirectComponent = withAuthRedirect(Dialogs);
+
 let mapStateToProps = (state) => {
   return {
     newMessageText: state.dialogsPage.newMessageText,
@@ -53,6 +56,9 @@ let mapDispathToProps = (dispatch) => {
     },
   };
 };
-const DialogsContainer = connect(mapStateToProps, mapDispathToProps)(Dialogs);
+const DialogsContainer = connect(
+  mapStateToProps,
+  mapDispathToProps
+)(AuthRedirectComponent);
 
 export default DialogsContainer;

@@ -31,7 +31,7 @@ const Dialogs = (props) => {
     props.onMessageChange(text);
   };
   //! not if (!this.props.isAuth)
-  if (props.isAuth === false) return <Navigate to={"/login"} />;
+//*   if (props.isAuth === false) return <Navigate to={"/login"} />;
 
   return (
     <div className={classes.dialogs__container}>
