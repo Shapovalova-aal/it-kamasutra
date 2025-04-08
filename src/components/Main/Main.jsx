@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-// import Profile from "../Pages/Profile/Profile";
 import Settings from "../Pages/Settings/Settings";
 import DialogsContainer from "../Pages/DialogsContainer/DialogsContainer";
 import News from "../Pages/News/News";
