@@ -314,3 +314,7 @@
 .btn__seeMore:active {
   transform: scale(0.97);
 }
+.btn__seeMore:disabled {
+  background-color: rgb(56, 56, 56);
+  color: rgb(109, 125, 145);
+}

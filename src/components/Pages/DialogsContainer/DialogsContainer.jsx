@@ -40,6 +40,7 @@ let mapStateToProps = (state) => {
     newMessageText: state.dialogsPage.newMessageText,
     dialogsElements: state.dialogsPage.dialogsData,
     messagesElements: state.dialogsPage.messagesData,
+    isAuth: state.auth.isAuth,
   };
 };
 let mapDispathToProps = (dispatch) => {

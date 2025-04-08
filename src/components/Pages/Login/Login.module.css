@@ -1,0 +1,29 @@
+.container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+.form {
+  width: 50%;
+  height: 90%;
+  border-radius: 14px;
+  background-color: rgb(34, 34, 34);
+  padding: 30px;
+}
+.login {
+  font-weight: 700;
+  margin: 0px 0px 20px 0px;
+}
+
+.form input {
+  width: 60%;
+  height: 50px;
+  border-radius: 14px;
+  padding: 10px 10px;
+  resize: none;
+  background-color: rgb(41, 41, 41);
+  color: rgb(225, 227, 230);
+  margin: 20px 0px 0px 0px;
+}

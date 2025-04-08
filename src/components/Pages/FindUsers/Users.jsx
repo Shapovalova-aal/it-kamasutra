@@ -35,6 +35,7 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
   return (
     <>
       <div className={classes.findUsers__title}>Find users</div>
@@ -151,9 +152,21 @@ const Users = (props) => {
             )}
           </div>
         ))}
-        <button className={classes.btn__seeMore} type="button">
+        <button className={classes.btn__seeMore} disabled={true} type="button">
           See more
         </button>
+        {/* <div>
+          <br />
+          <div>friends:</div>
+          <br />
+          <div>
+            {props.users
+              .filter((u) => u.followed === true)
+              .map((u) => (
+                <div>{u.name}</div>
+              ))}
+          </div>
+        </div> */}
       </div>
     </>
   );
