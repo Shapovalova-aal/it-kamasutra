@@ -30,7 +30,7 @@ const Dialogs = (props) => {
     let text = e.target.value;
     props.onMessageChange(text);
   };
-
+  //! not if (!this.props.isAuth)
   if (props.isAuth === false) return <Navigate to={"/login"} />;
 
   return (
