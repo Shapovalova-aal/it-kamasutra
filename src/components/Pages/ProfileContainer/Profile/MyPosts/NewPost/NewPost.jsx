@@ -1,3 +1,4 @@
+import ButtonGrey from "../../../../../UI/button/ButtonGrey/ButtonGrey";
 import ButtonWave from "../../../../../UI/button/ButtonWave/ButtonWave";
 import classes from "./NewPost.module.css";
 import React from "react";
@@ -18,7 +19,8 @@ const NewPost = (props) => {
         type="text"
         placeholder="Your news..."
       />
-      <ButtonWave addPost={props.addPost}>send</ButtonWave>
+      {/* <ButtonWave addPost={props.addPost}>send</ButtonWave> */}
+      <ButtonGrey addPost={props.addPost}> Send </ButtonGrey>
     </div>
   );
 };

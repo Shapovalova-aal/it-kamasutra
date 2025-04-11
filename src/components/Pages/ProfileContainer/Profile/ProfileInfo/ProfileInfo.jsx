@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./ProfileInfo.module.css";
 import Preloader from "../../../../UI/Preloader/Preloader";
 import userPhoto from "../../../../../Accetc/MockImages/userCat.jpg";
+import ProfileStatus from "./ProfileStatus/ProfileStatus";
 const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
@@ -24,8 +25,13 @@ const ProfileInfo = (props) => {
           <div className={classes.description__name}>
             {props.profile.fullName}
           </div>
+
+          <div className={classes.line}></div>
           <div className={classes.description__text}>
             <div className={classes.text__column1}>
+              <ProfileStatus status={"hello Lorem ipsum dolor sit"} />
+            </div>
+            <div className={classes.text__column2}>
               <p>About me: {props.profile.aboutMe}</p>
               <p>
                 I'm looking for a job:
