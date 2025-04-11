@@ -4,6 +4,8 @@ import {
   upDateNewPostText,
   addPost,
   getUserProfilePage,
+  getStatus,
+  updateStatus,
 } from "../../../Redux/profileReducer";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
@@ -12,6 +14,7 @@ import { compose } from "redux";
 
 function ProfileContainerWrapper(props) {
   const userId = useParams();
+
   return <ProfileContainer {...props} userId={userId} />;
 }
 
@@ -22,6 +25,7 @@ class ProfileContainer extends React.Component {
       userId = 32240;
     }
     this.props.getUserProfilePage(userId);
+    this.props.getStatus(userId);
   }
   render() {
     //!!!! if (!this.props.isAuth) return <Navigate to={"/login"} />;
@@ -34,6 +38,8 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   posts: state.profilePage.postData,
   newPostText: state.profilePage.newPostText,
+  status: state.profilePage.status,
+  me: state.auth.userId,
 });
 
 export default compose(
@@ -41,6 +47,8 @@ export default compose(
     upDateNewPostText,
     addPost,
     getUserProfilePage,
+    getStatus,
+    updateStatus,
   }),
   withAuthRedirect
 )(ProfileContainerWrapper);

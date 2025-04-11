@@ -7,6 +7,8 @@ const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
+  console.log(props);
+
   return (
     <>
       <div className={classes.content__image}></div>
@@ -29,7 +31,12 @@ const ProfileInfo = (props) => {
           <div className={classes.line}></div>
           <div className={classes.description__text}>
             <div className={classes.text__column1}>
-              <ProfileStatus status={"hello Lorem ipsum dolor sit"} />
+              <ProfileStatus
+                status={props.status}
+                updateStatus={props.updateStatus}
+                userId={props.profile.userId}
+                me={props.me}
+              />
             </div>
             <div className={classes.text__column2}>
               <p>About me: {props.profile.aboutMe}</p>

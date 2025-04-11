@@ -8,7 +8,7 @@ const Post = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-  console.log(props.profile.photos);
+  //   console.log(props.profile.photos);
   return (
     <div className={classes.posts__item}>
       <div className={classes.item__logo}>
