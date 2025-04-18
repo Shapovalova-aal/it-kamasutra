@@ -1,0 +1,29 @@
+.errorTextarea {
+  border: 2px solid #c74e4e !important;
+  transition: border ease 1s;
+  /* transition: all ease 500s; */
+}
+/* .errorSpan {
+  text-align: center;
+  color: #c74e4e;
+} */
+.error {
+  background-color: #c74e4e;
+  padding: 10px;
+  min-width: 100px;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  position: absolute;
+  top: -45px;
+  right: 0;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility, opacity ease 1s;
+}
+.error.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility, opacity ease 1s;
+}

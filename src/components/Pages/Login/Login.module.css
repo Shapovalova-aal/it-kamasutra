@@ -27,13 +27,16 @@
   background-color: rgb(41, 41, 41);
   color: rgb(225, 227, 230);
   margin: 0px 0px 20px 0px;
-  border: 1px solid rgb(41, 41, 41);
+  border: 2px solid rgb(41, 41, 41);
 }
 
 .form input[type="text"]:focus,
 .form input[type="password"]:focus {
-  border: 1px solid rgb(113, 170, 235);
+  border: 2px solid rgb(113, 170, 235);
   transition: 500ms;
+}
+.input {
+  position: relative;
 }
 .btn {
   text-align: center;

@@ -3,6 +3,11 @@ import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import { Field, reduxForm } from "redux-form";
+import { Textarea } from "../../../UI/FormControls/FormControls";
+import {
+  maxLengthCreator,
+  required,
+} from "../../../../utils/validators/validators";
 
 const Dialogs = (props) => {
   let dialogElement = props.dialogsElements.map((d) => (
@@ -35,13 +40,15 @@ const Dialogs = (props) => {
   );
 };
 
+const maxLength50 = maxLengthCreator(50);
 const AddMessageForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={classes.addMessage}>
       <Field
         name="messageText"
         placeholder="Your message..."
-        component="textarea"
+        component={Textarea}
+        validate={[required, maxLength50]}
       />
       <button>
         <img src="https://img.icons8.com/?size=100&id=100004&format=png&color=e1e3e6" />

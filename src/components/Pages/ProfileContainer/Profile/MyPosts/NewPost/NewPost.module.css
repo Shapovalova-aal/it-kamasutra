@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: end;
   margin: 0px 0px 20px 0px;
+  position: relative;
 }
 .posts__new button {
 }
@@ -10,12 +11,14 @@
   width: 100%;
   height: 50px;
   border-radius: 14px;
+  border: 2px solid rgb(34, 34, 34);
   padding: 10px 10px;
   resize: none;
   margin: 0px 0px 15px 0px;
   /* background-color: rgb(41, 41, 41); */
   background-color: rgb(34, 34, 34);
   color: rgb(225, 227, 230);
+  /* transition: all ease 500s; */
 }
 /* scroll styles */
 .posts__new textarea::-webkit-scrollbar {

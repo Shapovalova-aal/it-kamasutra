@@ -1,6 +1,13 @@
 import classes from "./NewPost.module.css";
 import React from "react";
 import { reduxForm, Field } from "redux-form";
+import {
+  maxLengthCreator,
+  required,
+} from "../../../../../../utils/validators/validators";
+import { Textarea } from "../../../../../UI/FormControls/FormControls";
+
+const maxLength50 = maxLengthCreator(50);
 
 const NewPostForm = (props) => {
   return (
@@ -8,7 +15,8 @@ const NewPostForm = (props) => {
       <Field
         placeholder={"Your news..."}
         name={"newPostText"}
-        component={"textarea"}
+        component={Textarea}
+        validate={[required, maxLength50]}
       />
       <button className={classes.btn}>send</button>
     </form>

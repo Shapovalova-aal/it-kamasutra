@@ -2,28 +2,40 @@ import React from "react";
 import classes from "./Login.module.css";
 import ButtonGrey from "../../UI/button/ButtonGrey/ButtonGrey";
 import { Field, reduxForm } from "redux-form";
+import { FormControls, Input } from "../../UI/FormControls/FormControls";
+import {
+  email,
+  maxLengthCreator,
+  minLengthCreator,
+  required,
+} from "../../../utils/validators/validators";
 
 const onSubmit = (formData) => {
   console.log(formData);
   // dispatch
 };
+const maxLength20 = maxLengthCreator(20);
+const maxLength8 = maxLengthCreator(9);
+const minLength8 = minLengthCreator(8);
 
 const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
-      <div>
+      <div className={classes.input}>
         <Field
           type={"text"}
-          placeholder={"login"}
-          component={"input"}
+          placeholder={"email@gmail.com"}
+          component={Input}
+          validate={[required, maxLength20, email]}
           name={"login"}
         />
       </div>
-      <div>
+      <div className={classes.input}>
         <Field
           type={"password"}
           placeholder={"password"}
-          component={"input"}
+          component={Input}
+          validate={[required, maxLength20, minLength8]}
           name={"password"}
         />
       </div>
