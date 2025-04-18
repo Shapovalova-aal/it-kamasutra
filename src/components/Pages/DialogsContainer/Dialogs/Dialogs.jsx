@@ -2,7 +2,7 @@ import classes from "./Dialogs.module.css";
 import React from "react";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import { Navigate } from "react-router";
+import { Field, reduxForm } from "redux-form";
 
 const Dialogs = (props) => {
   let dialogElement = props.dialogsElements.map((d) => (
@@ -20,38 +20,35 @@ const Dialogs = (props) => {
     />
   ));
 
-  let newMessageText = props.newMessageText;
-
-  let addMessage = () => {
-    props.addMessage();
+  let addMessage = (formData) => {
+    props.addMessage(formData.messageText);
   };
-
-  let onMessageChange = (e) => {
-    let text = e.target.value;
-    props.onMessageChange(text);
-  };
-  //! not if (!this.props.isAuth)
-//*   if (props.isAuth === false) return <Navigate to={"/login"} />;
 
   return (
     <div className={classes.dialogs__container}>
       <div className={classes.dialogs__items}>{dialogElement}</div>
       <div className={classes.messages}>
         {messagesElements}
-        <div className={classes.addMessage}>
-          <textarea
-            type="text"
-            placeholder="Your message..."
-            onChange={onMessageChange}
-            value={newMessageText}
-          />
-          <button onClick={addMessage} type="button">
-            <img src="https://img.icons8.com/?size=100&id=100004&format=png&color=e1e3e6" />
-          </button>
-        </div>
+        <AddMessageReduxForm onSubmit={addMessage} />
       </div>
     </div>
   );
 };
+
+const AddMessageForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} className={classes.addMessage}>
+      <Field
+        name="messageText"
+        placeholder="Your message..."
+        component="textarea"
+      />
+      <button>
+        <img src="https://img.icons8.com/?size=100&id=100004&format=png&color=e1e3e6" />
+      </button>
+    </form>
+  );
+};
+const AddMessageReduxForm = reduxForm({ form: "newMessage" })(AddMessageForm);
 
 export default Dialogs;

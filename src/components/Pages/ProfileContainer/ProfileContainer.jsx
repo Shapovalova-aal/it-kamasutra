@@ -37,14 +37,14 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
   posts: state.profilePage.postData,
-  newPostText: state.profilePage.newPostText,
+  //   newPostText: state.profilePage.newPostText,
   status: state.profilePage.status,
   me: state.auth.userId,
 });
 
 export default compose(
   connect(mapStateToProps, {
-    upDateNewPostText,
+    // upDateNewPostText,
     addPost,
     getUserProfilePage,
     getStatus,

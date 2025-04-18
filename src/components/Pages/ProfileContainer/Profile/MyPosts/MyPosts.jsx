@@ -17,9 +17,9 @@ const MyPosts = (props) => {
     <div className={classes.content__posts}>
       <div className={classes.content__title}>My posts</div>
       <NewPost
-        newPostText={props.newPostText}
+        // newPostText={props.newPostText}
         addPost={props.addPost}
-        upDateNewPostText={props.upDateNewPostText}
+        // upDateNewPostText={props.upDateNewPostText}
       />
       {postElement}
     </div>

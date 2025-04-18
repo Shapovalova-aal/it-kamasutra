@@ -9,7 +9,6 @@ import { compose } from "redux";
 
 let mapStateToProps = (state) => {
   return {
-    newMessageText: state.dialogsPage.newMessageText,
     dialogsElements: state.dialogsPage.dialogsData,
     messagesElements: state.dialogsPage.messagesData,
     isAuth: state.auth.isAuth,
@@ -17,24 +16,13 @@ let mapStateToProps = (state) => {
 };
 let mapDispathToProps = (dispatch) => {
   return {
-    addMessage: () => {
-      dispatch(addMessageActionCreator());
-    },
-    onMessageChange: (text) => {
-      dispatch(upDateNewMessageTextActionCreator(text));
+    addMessage: (messageText) => {
+      dispatch(addMessageActionCreator(messageText));
     },
   };
 };
-
-// let AuthRedirectComponent = withAuthRedirect(Dialogs);
-
-// const DialogsContainer = connect(
-//   mapStateToProps,
-//   mapDispathToProps
-// )(AuthRedirectComponent);
 
 export default compose(
   connect(mapStateToProps, mapDispathToProps),
   withAuthRedirect
 )(Dialogs);
-// DialogsContainer;

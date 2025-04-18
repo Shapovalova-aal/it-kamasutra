@@ -44,7 +44,7 @@ export const getAuth = () => (dispatch) => {
     }
   });
 };
-//для того чтобы при залогиненом пользователе при перезаходе не вылазил login
+//для того чтобы при залогиненом пользователе при перезаходе не вылазил login //! {
 export const setAuthUserData = () => ({
   type: SET_AUTH_USER_DATA,
 });
@@ -55,5 +55,5 @@ export const checkUserAuthData = () => (dispatch) => {
     }
   });
 };
-
+//! }
 export default authReducer;
