@@ -113,3 +113,18 @@
 .checkbox_input:disabled::after {
   filter: grayscale(100%);
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 60px rgb(98, 98, 98) inset !important;
+  -webkit-text-fill-color: rgb(225, 227, 230) !important;
+  border: 2px solid rgb(41, 41, 41);
+}
+input:-internal-autofill-selected {
+  background-color: light-dark(
+    rgb(232, 240, 254),
+    rgba(70, 90, 126, 0.4)
+  ) !important;
+}

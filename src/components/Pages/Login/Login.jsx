@@ -9,13 +9,11 @@ import {
   minLengthCreator,
   required,
 } from "../../../utils/validators/validators";
+import { connect } from "react-redux";
+import { login } from "../../../Redux/authReducer";
+import { Navigate, NavLink } from "react-router";
 
-const onSubmit = (formData) => {
-  console.log(formData);
-  // dispatch
-};
-const maxLength20 = maxLengthCreator(20);
-const maxLength8 = maxLengthCreator(9);
+const maxLength50 = maxLengthCreator(50);
 const minLength8 = minLengthCreator(8);
 
 const LoginForm = (props) => {
@@ -23,11 +21,11 @@ const LoginForm = (props) => {
     <form onSubmit={props.handleSubmit}>
       <div className={classes.input}>
         <Field
-          type={"text"}
+          name={"email"}
           placeholder={"email@gmail.com"}
+          type={"text"}
           component={Input}
-          validate={[required, maxLength20, email]}
-          name={"login"}
+          validate={[required, maxLength50, email]}
         />
       </div>
       <div className={classes.input}>
@@ -35,7 +33,7 @@ const LoginForm = (props) => {
           type={"password"}
           placeholder={"password"}
           component={Input}
-          validate={[required, maxLength20, minLength8]}
+          validate={[required, maxLength50, minLength8]}
           name={"password"}
         />
       </div>
@@ -62,7 +60,15 @@ const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
 
-const Login = () => {
+const Login = (props) => {
+  const onSubmit = (formData) => {
+    console.log(formData);
+    // dispatch
+    props.login(formData.email, formData.password, formData.rememberMe);
+  };
+  if (props.isAuth) {
+    return <Navigate to={"/profile"} />;
+  }
   return (
     <div className={classes.container}>
       <div className={classes.form}>
@@ -73,4 +79,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+});
+export default connect(mapStateToProps, { login })(Login);

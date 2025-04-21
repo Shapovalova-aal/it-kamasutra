@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Header from "./Header";
-import { checkUserAuthData, getAuth } from "../../Redux/authReducer";
+import { checkUserAuthData, getAuth, logout } from "../../Redux/authReducer";
 import { compose } from "redux";
 
 class HeaderContainer extends React.Component {
   componentDidMount() {
     this.props.getAuth();
-    this.props.checkUserAuthData();
+    // this.props.checkUserAuthData();
   }
   render() {
     return <Header {...this.props} />;
@@ -23,5 +23,6 @@ export default compose(
   connect(mapStateToProps, {
     getAuth,
     checkUserAuthData,
+    logout,
   })
 )(HeaderContainer);
