@@ -128,3 +128,10 @@ input:-internal-autofill-selected {
     rgba(70, 90, 126, 0.4)
   ) !important;
 }
+
+.errors {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+}

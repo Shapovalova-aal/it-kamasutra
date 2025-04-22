@@ -8,7 +8,9 @@ let mapStateToPropsRedirect = (state) => ({
 
 export const withAuthRedirect = (Component) => {
   const RedirectComponent = (props) => {
-    if (props.isAuth === false) return <Navigate to={"/login"} />;
+    // debugger;
+    if (props.isAuth === false || props.isAuth === null)
+      return <Navigate to={"/login"} />;
     return <Component {...props} />;
   };
   let ConnectedAuthRedirectComponent = connect(mapStateToPropsRedirect)(

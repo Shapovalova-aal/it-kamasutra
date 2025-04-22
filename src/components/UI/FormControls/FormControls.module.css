@@ -27,3 +27,25 @@
   opacity: 1;
   transition: visibility, opacity ease 1s;
 }
+
+.formSummaryError {
+  background-color: #c74e4e;
+  padding: 10px;
+  /* min-width: 100px; */
+  /* max-width: 60%; */
+  min-height: 36px;
+  width: 60%;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: 600;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility, opacity ease 1s;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility, opacity ease 1s;
+}

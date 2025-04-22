@@ -1,0 +1,67 @@
+// в formik
+// login
+
+export function Login(props) {
+  if (props.isAuth) {
+    return <Navigate to="/profile" />;
+  }
+
+  return (
+    <div>
+      <h1>Log In</h1>
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+          rememberMe: false,
+        }}
+        onSubmit={(values) => {
+          props.login(values.email, values.password, values.rememberMe);
+        }}
+      >
+        <Form>
+          <label htmlFor="email">Login</label>
+          <Field
+            id="email"
+            name="email"
+            placeholder="Email"
+            component={Input}
+            validate={composeValidators(required, maxLengthCreator(50))}
+          />
+
+          <label htmlFor="password">Password</label>
+          <Field
+            id="password"
+            name="password"
+            placeholder="Password"
+            type="password"
+            component={Input}
+            validate={required}
+          />
+
+          <div>
+            <label>
+              <Field
+                component={Input}
+                id="rememberMe"
+                name="rememberMe"
+                type="checkbox"
+              />
+              Remember Me
+            </label>
+          </div>
+
+          <button type="submit">Submit</button>
+        </Form>
+      </Formik>
+      {props.errorAuth && <div className={s.errors}>{props.errorAuth}</div>}
+    </div>
+  );
+}
+
+const mapStateToProps = (state) => ({
+  isAuth: state.auth.isAuth,
+  errorAuth: state.auth.errorAuth,
+});
+
+export default connect(mapStateToProps, { login })(Login);

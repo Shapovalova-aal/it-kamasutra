@@ -12,6 +12,7 @@ import {
 import { connect } from "react-redux";
 import { login } from "../../../Redux/authReducer";
 import { Navigate, NavLink } from "react-router";
+import classesErrors from "../../UI/FormControls/FormControls.module.css";
 
 const maxLength50 = maxLengthCreator(50);
 const minLength8 = minLengthCreator(8);
@@ -48,6 +49,17 @@ const LoginForm = (props) => {
         <label htmlFor={"checkbox"} className={classes.checkbox_label}>
           Remember me
         </label>
+      </div>
+      <div className={classes.errors}>
+        <div
+          className={
+            classesErrors.formSummaryError +
+            " " +
+            (props.error ? classesErrors.visible : " ")
+          }
+        >
+          {props.error}
+        </div>
       </div>
       <div>
         <button className={classes.btn}>submit</button>
