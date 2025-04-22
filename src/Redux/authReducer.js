@@ -1,5 +1,6 @@
 import { stopSubmit } from "redux-form";
 import { authAPI } from "../API/API";
+import { initializedSuccess } from "./appReducer";
 const SET_USER_DATA = "SET-USER-DATA";
 const SET_AUTH_USER_DATA = "SET-AUTH-USER-DATA";
 
@@ -38,13 +39,16 @@ export const setAuthUser = (userId, email, login, isAuth) => ({
   },
 });
 
-export const getAuth = () => (dispatch) => {
-  authAPI.isAuth().then((response) => {
-    if (response.resultCode === 0) {
-      let { id, email, login } = response.data;
-      dispatch(setAuthUser(id, email, login, true));
-    }
-  });
+export const getAuth = () => {
+  return (dispatch) => {
+    authAPI.isAuth().then((response) => {
+      if (response.resultCode === 0) {
+        let { id, email, login } = response.data;
+        dispatch(setAuthUser(id, email, login, true));
+      }
+      dispatch(initializedSuccess());
+    });
+  };
 };
 //для того чтобы при залогиненом пользователе при перезаходе не вылазил login //! {
 export const setAuthUserData = () => ({

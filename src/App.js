@@ -5,23 +5,32 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import Main from "./components/Main/Main";
 import { BrowserRouter, Route, Routes } from "react-router";
 import Login from "../src/components/Pages/Login/Login";
-function App(props) {
-  return (
-    <div className="wrapper">
-      <BrowserRouter>
-        <HeaderContainer />
-        {/* <Routes> */}
-        {/* <Route path="/*" element={<Main />} /> */}
-        <Main
-        //   store={props.store}
-        // navbarData={props.state.navBar}
-        />
-        {/* <Route path="/login" element={<Login />} />
-        </Routes> */}
-        <Footer />
-      </BrowserRouter>
-    </div>
-  );
-}
+import { render } from "@testing-library/react";
+import { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { getAuth } from "./Redux/authReducer";
+import Preloader from "./components/UI/Preloader/Preloader";
 
-export default App;
+class App extends Component {
+  componentDidMount() {
+    // this.props.initializeApp();
+    this.props.getAuth();
+  }
+  render() {
+    if (!this.props.initialized) return <Preloader />;
+    return (
+      <div className="wrapper">
+        <BrowserRouter>
+          <HeaderContainer />
+          <Main />
+          <Footer />
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized,
+});
+export default connect(mapStateToProps, { getAuth })(App);

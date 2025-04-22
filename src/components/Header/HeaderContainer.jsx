@@ -5,10 +5,10 @@ import { checkUserAuthData, getAuth, logout } from "../../Redux/authReducer";
 import { compose } from "redux";
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    this.props.getAuth();
-    // this.props.checkUserAuthData();
-  }
+  //   componentDidMount() {
+  // this.props.getAuth();
+  // this.props.checkUserAuthData();
+  //   }
   render() {
     return <Header {...this.props} />;
   }
@@ -21,7 +21,7 @@ const mapStateToProps = (state) => ({
 
 export default compose(
   connect(mapStateToProps, {
-    getAuth,
+    // getAuth,
     checkUserAuthData,
     logout,
   })

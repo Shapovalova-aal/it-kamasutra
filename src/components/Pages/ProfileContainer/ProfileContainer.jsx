@@ -8,7 +8,7 @@ import {
   updateStatus,
 } from "../../../Redux/profileReducer";
 import { connect } from "react-redux";
-import { useParams } from "react-router";
+import { Navigate, useParams } from "react-router";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
@@ -24,6 +24,12 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       //   userId = 32240;
       userId = this.props.me;
+      if (!userId) {
+        // debugger;
+        // <Navigate to={"/login"} />;  //! не будет работать
+        window.location.href = "/login";
+        // this.props.history.push("/login"); //! не будет работать
+      }
     }
     this.props.getUserProfilePage(userId);
     this.props.getStatus(userId);
@@ -50,6 +56,6 @@ export default compose(
     getUserProfilePage,
     getStatus,
     updateStatus,
-  }),
-  withAuthRedirect
+  })
+  //   withAuthRedirect
 )(ProfileContainerWrapper);
